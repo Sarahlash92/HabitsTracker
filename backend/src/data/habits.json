@@ -1,33 +1,63 @@
 [
-    {
-      "id": 1,
-      "name": "Drink Water",
-      "description": "Drink at least 8 glasses of water today",
-      "completedDates": ["2025-04-14", "2025-04-15", "2025-04-17", "2025-04-19"]
-    },
-    {
-      "id": 2,
-      "name": "Exercise",
-      "description": "Do at least 30 minutes of physical activity",
-      "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18"]
-    },
-    {
-      "id": 3,
-      "name": "Read for 30 mins",
-      "description": "Spend 30 minutes reading a book or article",
-      "completedDates": ["2025-04-14", "2025-04-16", "2025-04-17", "2025-04-20"]
-    },
-    {
-      "id": 4,
-      "name": "Meditate",
-      "description": "Take 10–15 minutes to sit quietly and focus on breathing",
-      "completedDates": ["2025-04-14", "2025-04-15", "2025-04-18", "2025-04-19", "2025-04-20"]
-    },
-    {
-      "id": 5,
-      "name": "Write Journal",
-      "description": "Reflect on the day by writing one journal entry",
-      "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18", "2025-04-20"]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Drink Water",
+    "description": "Drink at least 8 glasses of water today",
+    "completedDates": [
+      "2025-04-14",
+      "2025-04-15",
+      "2025-04-17",
+      "2025-04-19"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Exercise",
+    "description": "Do at least 30 minutes of physical activity",
+    "completedDates": [
+      "2025-04-15",
+      "2025-04-16",
+      "2025-04-18"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Read for 30 mins",
+    "description": "Spend 30 minutes reading a book or article",
+    "completedDates": [
+      "2025-04-14",
+      "2025-04-16",
+      "2025-04-17",
+      "2025-04-20"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Meditate",
+    "description": "Take 10–15 minutes to sit quietly and focus on breathing",
+    "completedDates": [
+      "2025-04-14",
+      "2025-04-15",
+      "2025-04-18",
+      "2025-04-19",
+      "2025-04-20"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Write Journal",
+    "description": "Reflect on the day by writing one journal entry",
+    "completedDates": [
+      "2025-04-15",
+      "2025-04-16",
+      "2025-04-18",
+      "2025-04-20"
+    ]
+  },
+  {
+    "id": "3273833f-8685-4f41-ad6d-c4e6dce7c701",
+    "name": "Walk the dog",
+    "description": "Walk the dog twice a day",
+    "completedDates": []
+  }
+]

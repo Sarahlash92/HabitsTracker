@@ -1,11 +1,11 @@
 import { inject, injectable } from "inversify";
-import { HabitsRepository } from "../repositories/habits.fileRepository";
+import { HabitsRepository } from "../repositories/habits.repository";
 import { Habit } from "../models/habit.model";
 
 @injectable()
 export class HabitsService {
   constructor(
-    @inject(HabitsRepository) private habitRepository: HabitsRepository
+    @inject("HabitsRepository") private habitRepository: HabitsRepository
   ) {}
 
   async getAllHabits(): Promise<Habit[]> {
@@ -13,6 +13,7 @@ export class HabitsService {
   }
 
   async createHabit(name: string, description: string): Promise<Habit> {
+    console.log("creating triggered");
     return this.habitRepository.create(name, description);
   }
 
@@ -20,7 +21,7 @@ export class HabitsService {
     return this.habitRepository.toggleCompleteForToday(id);
   }
 
-  async deleteHabit(id: string): Promise<Habit> {
+  async deleteHabit(id: string): Promise<void> {
     return this.habitRepository.delete(id);
   }
 }

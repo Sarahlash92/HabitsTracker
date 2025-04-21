@@ -1,5 +1,6 @@
 import { injectable } from "inversify";
 import { Habit } from "../models/habit.model";
+import { HabitsRepository } from './habits.repository';
 import path from "path";
 import fs from "fs/promises";
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 const FILE_PATH = path.resolve(__dirname, "../data/habits.json");
 
 @injectable()
-export class FileHabitRepository {
+export class FileHabitRepository implements HabitsRepository {
   private async readData(): Promise<Habit[]> {
     try {
       console.log("FILE_PATH", FILE_PATH);
@@ -35,6 +36,7 @@ export class FileHabitRepository {
       completedDates: [],
     };
     habits.push(newHabit);
+    console.log('new habit',newHabit );
     await this.writeData(habits);
     return newHabit;
   }
@@ -56,7 +58,7 @@ export class FileHabitRepository {
     return habitToUpdate;
   }
 
-  async delete(id: string): Promise<Habit> {
+  async delete(id: string): Promise<void> {
     const habits = await this.readData();
     const index = habits.findIndex((habit) => habit.id === id);
 
@@ -64,6 +66,5 @@ export class FileHabitRepository {
 
     const [deletedHabit] = habits.splice(index, 1);
     await this.writeData(habits);
-    return deletedHabit;
   }
 }
