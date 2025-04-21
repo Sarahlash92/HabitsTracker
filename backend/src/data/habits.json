@@ -4,38 +4,17 @@
     "name": "Drink Water",
     "description": "Drink at least 8 glasses of water today",
     "color": "bg-blue-400",
-    "completedDates": [
-      "2025-04-14",
-      "2025-04-15",
-      "2025-04-17",
-      "2025-04-19"
-    ]
+    "completedDates": ["2025-04-14", "2025-04-15", "2025-04-17", "2025-04-19"]
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Exercise",
     "description": "Do at least 30 minutes of physical activity",
     "color": "bg-green-400",
-    "completedDates": [
-      "2025-04-15",
-      "2025-04-16",
-      "2025-04-18"
-    ]
+    "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18", "2025-04-21"]
   },
   {
-    "id": 3,
-    "name": "Read for 30 mins",
-    "description": "Spend 30 minutes reading a book or article",
-    "color": "bg-purple-500",
-    "completedDates": [
-      "2025-04-14",
-      "2025-04-16",
-      "2025-04-17",
-      "2025-04-20"
-    ]
-  },
-  {
-    "id": 4,
+    "id": "4",
     "name": "Meditate",
     "description": "Take 10–15 minutes to sit quietly and focus on breathing",
     "color": "bg-yellow-400",
@@ -48,30 +27,23 @@
     ]
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Write Journal",
     "description": "Reflect on the day by writing one journal entry",
     "color": "bg-pink-400",
-    "completedDates": [
-      "2025-04-15",
-      "2025-04-16",
-      "2025-04-18",
-      "2025-04-20"
-    ]
+    "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18", "2025-04-20"]
   },
   {
     "id": "b56888b6-0558-4507-962d-af8ea0a9faae",
     "name": "Walk the dog",
     "description": "Walk the dog twice a day",
     "color": "bg-green-400",
-    "completedDates": [
-      "2025-04-21"
-    ]
+    "completedDates": ["2025-04-21"]
   },
   {
-    "id": "e0fc9f0c-5991-41b9-9e9e-b612a1bd0e87",
-    "name": "a new habit ",
-    "description": "this is a new habit",
+    "id": "a81cd639-5f0b-4a33-a0bb-13a2c70265f4",
+    "name": "dsdasd",
+    "description": "adsf sdfadsf saf ",
     "color": "bg-purple-400",
     "completedDates": []
   }
