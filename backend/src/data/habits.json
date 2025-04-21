@@ -1,17 +1,27 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Drink Water",
     "description": "Drink at least 8 glasses of water today",
     "color": "bg-blue-400",
-    "completedDates": ["2025-04-14", "2025-04-15", "2025-04-17", "2025-04-19"]
+    "completedDates": [
+      "2025-04-14",
+      "2025-04-15",
+      "2025-04-17",
+      "2025-04-19"
+    ]
   },
   {
     "id": "2",
     "name": "Exercise",
     "description": "Do at least 30 minutes of physical activity",
     "color": "bg-green-400",
-    "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18", "2025-04-21"]
+    "completedDates": [
+      "2025-04-15",
+      "2025-04-16",
+      "2025-04-18",
+      "2025-04-21"
+    ]
   },
   {
     "id": "4",
@@ -31,14 +41,21 @@
     "name": "Write Journal",
     "description": "Reflect on the day by writing one journal entry",
     "color": "bg-pink-400",
-    "completedDates": ["2025-04-15", "2025-04-16", "2025-04-18", "2025-04-20"]
+    "completedDates": [
+      "2025-04-15",
+      "2025-04-16",
+      "2025-04-18",
+      "2025-04-20"
+    ]
   },
   {
     "id": "b56888b6-0558-4507-962d-af8ea0a9faae",
     "name": "Walk the dog",
     "description": "Walk the dog twice a day",
     "color": "bg-green-400",
-    "completedDates": ["2025-04-21"]
+    "completedDates": [
+      "2025-04-21"
+    ]
   },
   {
     "id": "a81cd639-5f0b-4a33-a0bb-13a2c70265f4",
