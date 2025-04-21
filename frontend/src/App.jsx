@@ -5,15 +5,7 @@ import { DateRangeBar } from "./components/dateRangeBar/dateRangeBar";
 import { UserProfileCard } from "./components/userProfileCard/userProfileCard";
 import { CreateHabit } from "./components/createHabit/createHabit";
 import { HabitDisplayColumn } from "./components/habitDisplayColumn/habitDisplayColumn";
-import {
-  format,
-  startOfWeek,
-  addDays,
-  isSameDay,
-  parseISO,
-  isToday,
-  addWeeks,
-} from "date-fns";
+import { startOfWeek, addWeeks } from "date-fns";
 
 function App() {
   const data = [
@@ -59,12 +51,6 @@ function App() {
   const [weekStart, setWeekStart] = useState(
     startOfWeek(new Date(), { weekStartsOn: 1 })
   );
-
-  const handleWeekChange = (direction) => {
-    setWeekStart((prev) =>
-      direction === "prev" ? addWeeks(prev, -1) : addWeeks(prev, 1)
-    );
-  };
 
   const handleDelete = (habitIdToDelete) => {
     const updatedHabits = habits.filter(
