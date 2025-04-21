@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.ts",
-    "start:dev": "nodemon index.ts",
+    "start": "nodemon index.ts",
     "build": "npx tsc"
   },
   "author": "",
@@ -14,6 +13,7 @@
   "dependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "inversify": "^7.5.1",
