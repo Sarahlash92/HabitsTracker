@@ -46,7 +46,14 @@ function App() {
   ];
 
   const [habits, setHabits] = useState(data);
- 
+
+  const handleDelete = (habitIdToDelete) => {
+    const updatedHabits = habits.filter(
+      (habit) => habit.id !== habitIdToDelete
+    );
+    setHabits(updatedHabits);
+  };
+
   const handleSetCompletedDates = (habitIndex, newCompletedDates) => {
     const updatedHabits = [...habits];
     updatedHabits[habitIndex] = {
@@ -60,7 +67,7 @@ function App() {
     <>
       <div className="flex h-screen justify-between w-full overflow-scroll">
         <div className="flex flex-col w-2/3 h-3/4 gap-10">
-          <UserProfileCard habits={habits}/>
+          <UserProfileCard habits={habits} />
           <CreateHabit
             habitsOnDisplay={habits}
             setHabitsOnDisplay={setHabits}
@@ -70,7 +77,8 @@ function App() {
         </div>
         <HabitDisplayColumn
           habits={habits}
-          setCompletedDates={handleSetCompletedDates} 
+          setCompletedDates={handleSetCompletedDates}
+          handleDelete={handleDelete}
         />
       </div>
     </>
