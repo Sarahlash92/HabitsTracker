@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { HabitsTable } from "./components/habitsTable/habitsTable";
 import { DateRangeBar } from "./components/habitsTable/dateRangeBar/dateRangeBar";
 import { UserProfileCard } from "./components/habitsTable/userProfileCard/userProfileCard";
+import { CreateHabit } from "./components/createHabit/createHabit";
 
 function App() {
   const data = [
@@ -46,12 +47,19 @@ function App() {
   const [habits, setHabits] = useState(data);
   console.log("habits", habits);
   return (
-    <div className="">
-      <UserProfileCard habits={habits} />
-      <DateRangeBar />
-      <HabitsTable habits={habits} />
-    </div>
+    <>
+      <div className="flex h-screen justify-between w-full overflow-scroll">
+        <div className="flex flex-col w-2/3 h-3/4 gap-10">
+          <UserProfileCard habits={habits}/>
+          <CreateHabit
+            habitsOnDisplay={habits}
+            setHabitsOnDisplay={setHabits}
+          />
+          <DateRangeBar />
+          <HabitsTable habits={habits} />
+        </div>
+      </div>
+    </>
   );
 }
-
 export default App;
