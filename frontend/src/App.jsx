@@ -24,7 +24,6 @@ function App() {
     const loadHabits = async () => {
       try {
         const data = await fetchHabits();
-        console.log(data);
         setHabits(data);
       } catch (err) {
         console.error("Failed to load habits", err);
@@ -45,7 +44,7 @@ function App() {
   const handleSetCompletedDates = async (habitIndex, newCompletedDates) => {
     const habit = habits[habitIndex];
     try {
-      await updateCompletedDates(habit.id, newCompletedDates);
+      await updateCompletedDates(habit.id);
       const updatedHabits = [...habits];
       updatedHabits[habitIndex] = {
         ...habit,
@@ -73,9 +72,7 @@ function App() {
     <div className="flex h-screen justify-between w-full overflow-scroll">
       <div className="flex flex-col w-2/3 h-3/4 gap-10">
         <UserProfileCard habits={habits} />
-        <CreateHabit
-          onCreate={handleCreateHabit}
-        />
+        <CreateHabit onCreate={handleCreateHabit} />
         <DateRangeBar
           weekStart={weekStart}
           goToPrevWeek={goToPrevWeek}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import { FiMoreVertical } from "react-icons/fi";
 import { calculateStreak } from "../../utils/streakUtils";
+import { updateCompletedDates } from "../../services/api";
 
 export const HabitCard = ({
   habitId,
@@ -16,12 +17,13 @@ export const HabitCard = ({
   const isCompletedToday = habitCompletedDates?.includes(today);
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleMarkToday = () => {
-    const updatedDates = isCompletedToday
-      ? habitCompletedDates.filter((date) => date !== today)
-      : [...habitCompletedDates, today];
-
-    setCompletedDates(updatedDates);
+  const handleMarkToday = async () => {
+    try {
+      const updatedHabit = await updateCompletedDates(habitId);
+      setCompletedDates(updatedHabit.completedDates);
+    } catch (error) {
+      console.error("Error updating completed dates:", error);
+    }
   };
 
   const streak = calculateStreak(habitCompletedDates);

@@ -16,11 +16,9 @@ export const createHabit = async (habit) => {
   return res.json();
 };
 
-export const updateCompletedDates = async (id, completedDates) => {
-  const res = await fetch(`${API_BASE}/habits/${id}/completedDates`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ completedDates }),
+export const updateCompletedDates = async (id) => {
+  const res = await fetch(`${API_BASE}/habits/${id}/toggle`, {
+    method: "PATCH",
   });
   if (!res.ok) throw new Error("Failed to update completed dates");
   return res.json();
