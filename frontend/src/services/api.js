@@ -1,32 +1,31 @@
-const API_BASE = "http://localhost:8080";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchHabits = async () => {
-  const res = await fetch(`${API_BASE}/habits`);
-  if (!res.ok) throw new Error("Failed to fetch habits");
-  return res.json();
+  const response = await fetch(`${API_BASE_URL}/habits`);
+  return response.json();
 };
 
-export const createHabit = async (habit) => {
-  const res = await fetch(`${API_BASE}/habits`, {
+export const createHabit = async (habitInput) => {
+  const response = await fetch(`${API_BASE_URL}/habits`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(habit),
+    body: JSON.stringify(habitInput),
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
-  if (!res.ok) throw new Error("Failed to create habit");
-  return res.json();
+  return response.json();
 };
 
-export const updateCompletedDates = async (id) => {
-  const res = await fetch(`${API_BASE}/habits/${id}/toggle`, {
+export const updateCompletedDates = async (habitId) => {
+  const response = await fetch(`${API_BASE_URL}/habits/${habitId}/toggle`, {
     method: "PATCH",
   });
-  if (!res.ok) throw new Error("Failed to update completed dates");
-  return res.json();
+  return response.json();
 };
 
-export const deleteHabit = async (id) => {
-  const res = await fetch(`${API_BASE}/habits/${id}`, {
+export const deleteHabit = async (habitId) => {
+  const response = await fetch(`${API_BASE_URL}/habits/${habitId}`, {
     method: "DELETE",
   });
-  if (!res.ok) throw new Error("Failed to delete habit");
+  return response.json();
 };

@@ -9,7 +9,7 @@ export function Ducky3D() {
       <primitive
         object={fbx_duck}
         scale={[1, 1, 1]}
-        position={[0, -150, 0]}
+        position={[0, -130, 0]}
       />
     </>
   );
