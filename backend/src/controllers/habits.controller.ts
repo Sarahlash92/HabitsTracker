@@ -3,14 +3,20 @@ import { HabitsService } from "../services/habits.service";
 
 @injectable()
 export class HabitsController {
-constructor(@inject(HabitsService) private habitsService: HabitsService) {}
+  constructor(@inject(HabitsService) private habitsService: HabitsService) {}
 
   public async getAll() {
     return await this.habitsService.getAllHabits();
   }
-  public async create() {}
+  public async create(name: string, description: string) {
+    return await this.habitsService.createHabit(name, description);
+  }
 
-  public async delete(id: string) {}
+  public async toggleCompleteForToday(id: string) {
+    return await this.habitsService.toggleHabit(id);
+  }
 
-  public async toggleCompleteForToday(id: string) {}
+  public async delete(id: string) {
+    return await this.habitsService.deleteHabit(id);
+  }
 }
