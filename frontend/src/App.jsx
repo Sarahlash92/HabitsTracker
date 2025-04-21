@@ -20,6 +20,15 @@ function App() {
     startOfWeek(new Date(), { weekStartsOn: 1 })
   );
 
+  const cameraPositions = [
+    [0, 0, -200],
+    [-62, 53, 16],
+    [29, 25, 40],
+    [- 7, 55, 48],
+  ];
+
+  const [cameraPosition, setCameraPosition] = useState(cameraPositions[0]);
+
   useEffect(() => {
     const loadHabits = async () => {
       try {
@@ -51,6 +60,7 @@ function App() {
         completedDates: newCompletedDates,
       };
       setHabits(updatedHabits);
+      randomizeCamera();
     } catch (err) {
       console.error("Update failed", err);
     }
@@ -68,10 +78,15 @@ function App() {
     }
   };
 
+  const randomizeCamera = () => {
+    const randomIndex = Math.floor(Math.random() * cameraPositions.length);
+    setCameraPosition(cameraPositions[randomIndex]);
+  };
+
   return (
     <div className="flex h-screen justify-between w-full overflow-scroll">
       <div className="flex flex-col w-2/3 h-3/4 gap-10">
-        <UserProfileCard habits={habits} />
+        <UserProfileCard cameraPosition={cameraPosition} habits={habits} />
         <CreateHabit onCreate={handleCreateHabit} />
         <DateRangeBar
           weekStart={weekStart}
