@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import React, { useState } from "react";
+import { HabitsTable } from "./components/habitsTable/habitsTable";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const data = [
+    {
+      id: 1,
+      name: "Drink Water",
+      color: "bg-blue-400",
+      description: "Drink at least 8 glasses of water today",
+      completedDates: ["2025-04-16", "2025-04-17"],
+    },
+    {
+      id: 2,
+      name: "Exercise",
+      color: "bg-green-400",
+      description: "Do at least 30 minutes of physical activity",
+      completedDates: [],
+    },
+    {
+      id: 3,
+      name: "Read for 30 mins",
+      color: "bg-purple-500",
+      description: "Spend 30 minutes reading a book or article",
+      completedDates: ["2025-04-15"],
+    },
+    {
+      id: 4,
+      name: "Meditate",
+      color: "bg-yellow-400",
+      description: "Take 10–15 minutes to sit quietly and focus on breathing",
+      completedDates: ["2025-04-16", "2025-04-18"],
+    },
+    {
+      id: 5,
+      name: "Write Journal",
+      color: "bg-pink-400",
+      description: "Reflect on the day by writing one journal entry",
+      completedDates: ["2025-04-17"],
+    },
+  ];
 
+  const [habits, setHabits] = useState(data);
+  console.log("habits", habits);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="">
+      <HabitsTable habits={habits} />
+    </div>
+  );
 }
 
-export default App
+export default App;
