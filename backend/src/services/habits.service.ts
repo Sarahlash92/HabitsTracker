@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { HabitsRepository } from "../repositories/habits.repository";
+import { HabitsRepository } from "../repositories/habits.fileRepository";
 import { Habit } from "../models/habit.model";
 
 @injectable()

@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 const FILE_PATH = path.resolve(__dirname, "../data/habits.json");
 
 @injectable()
-export class HabitsRepository {
+export class FileHabitRepository {
   private async readData(): Promise<Habit[]> {
     try {
       console.log("FILE_PATH", FILE_PATH);
