@@ -8,24 +8,24 @@ const tailwindColors = [
   { name: "Pink", class: "bg-pink-400" },
 ];
 
-export const CreateHabit = ({ habitsOnDisplay, setHabitsOnDisplay }) => {
+export const CreateHabit = ({ onCreate }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState(tailwindColors[0].class);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleCreateHabit = () => {
+  const handleCreateHabit = async () => {
     if (!name.trim()) return;
 
     const newHabit = {
-      id: habitsOnDisplay.length + 1,
       name,
       description,
       color,
       completedDates: [],
     };
 
-    setHabitsOnDisplay([...habitsOnDisplay, newHabit]);
+    await onCreate(newHabit);
+
     setName("");
     setDescription("");
     setColor(tailwindColors[0].class);
