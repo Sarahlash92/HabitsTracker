@@ -9,7 +9,7 @@ export const UserProfileCard = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-amber-600">
+      <div className="w-1/2">
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import { FiMoreVertical } from "react-icons/fi";
+import { calculateStreak } from "../../utils/streakUtils";
 
 export const HabitCard = ({
   habitId,
@@ -23,6 +24,8 @@ export const HabitCard = ({
     setCompletedDates(updatedDates);
   };
 
+  const streak = calculateStreak(habitCompletedDates);
+
   return (
     <div className="relative flex items-stretch shadow-2xl mb-3 rounded-xl overflow-clip">
       {!isCompletedToday && <div className={`w-2 ${habitColor}`} />}
@@ -33,7 +36,15 @@ export const HabitCard = ({
             : "bg-white text-black"
         }`}
       >
-        <div className="absolute top-2 right-3">
+        <div className="absolute top-2 right-3 flex items-center gap-2">
+          {streak > 0 && (
+            <span
+              title={`${streak}-day streak`}
+              className="text-orange-500 font-medium text-sm"
+            >
+              🔥 {streak}
+            </span>
+          )}
           <button onClick={() => setShowMenu(!showMenu)}>
             <FiMoreVertical className="text-lg" />
           </button>
@@ -43,7 +54,7 @@ export const HabitCard = ({
                 className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 text-red-500"
                 onClick={() => {
                   setShowMenu(false);
-                  onDelete?.(habitId); 
+                  onDelete?.(habitId);
                 }}
               >
                 Delete
