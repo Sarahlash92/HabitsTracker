@@ -25,8 +25,12 @@ export class HabitsRouter {
 
     this.router.post("/", async (req: Request, res: Response) => {
       try {
-        const { name, description } = req.body;
-        const newHabit = await this.habitsController.create(name, description);
+        const { name, description, color } = req.body;
+        const newHabit = await this.habitsController.create(
+          name,
+          description,
+          color
+        );
         res.status(201).json(newHabit);
       } catch (error) {
         res.status(500).json({ error: "Error in creating habit" });

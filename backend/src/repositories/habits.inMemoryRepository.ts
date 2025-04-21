@@ -11,11 +11,12 @@ export class InMemoryHabitRepository implements HabitsRepository {
     return this.habits;
   }
 
-  async create(name: string, description: string): Promise<Habit> {
+  async create(name: string, description: string, color: string): Promise<Habit> {
     const newHabit: Habit = {
       id: uuidv4(),
       name,
       description,
+      color,
       completedDates: [],
     };
     this.habits.push(newHabit);

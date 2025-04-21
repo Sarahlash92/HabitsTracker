@@ -3,6 +3,7 @@
     "id": 1,
     "name": "Drink Water",
     "description": "Drink at least 8 glasses of water today",
+    "color": "bg-blue-400",
     "completedDates": [
       "2025-04-14",
       "2025-04-15",
@@ -14,6 +15,7 @@
     "id": 2,
     "name": "Exercise",
     "description": "Do at least 30 minutes of physical activity",
+    "color":"bg-green-400",
     "completedDates": [
       "2025-04-15",
       "2025-04-16",
@@ -24,6 +26,7 @@
     "id": 3,
     "name": "Read for 30 mins",
     "description": "Spend 30 minutes reading a book or article",
+    "color":"bg-purple-500",
     "completedDates": [
       "2025-04-14",
       "2025-04-16",
@@ -35,6 +38,7 @@
     "id": 4,
     "name": "Meditate",
     "description": "Take 10–15 minutes to sit quietly and focus on breathing",
+    "color":"bg-yellow-400",
     "completedDates": [
       "2025-04-14",
       "2025-04-15",
@@ -47,6 +51,7 @@
     "id": 5,
     "name": "Write Journal",
     "description": "Reflect on the day by writing one journal entry",
+    "color":"bg-pink-400",
     "completedDates": [
       "2025-04-15",
       "2025-04-16",
@@ -58,6 +63,7 @@
     "id": "b56888b6-0558-4507-962d-af8ea0a9faae",
     "name": "Walk the dog",
     "description": "Walk the dog twice a day",
+    "color":"bg-green-400",
     "completedDates": [
       "2025-04-21"
     ]

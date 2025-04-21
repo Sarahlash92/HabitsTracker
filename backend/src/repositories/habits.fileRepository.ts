@@ -26,12 +26,13 @@ export class FileHabitRepository implements HabitsRepository {
     return await this.readData();
   }
 
-  async create(name: string, description: string): Promise<Habit> {
+  async create(name: string, description: string, color: string): Promise<Habit> {
     const habits = await this.readData();
     const newHabit: Habit = {
       id: uuidv4(),
       name,
       description,
+      color,
       completedDates: [],
     };
     habits.push(newHabit);

@@ -8,8 +8,8 @@ export class HabitsController {
   public async getAll() {
     return await this.habitsService.getAllHabits();
   }
-  public async create(name: string, description: string) {
-    return await this.habitsService.createHabit(name, description);
+  public async create(name: string, description: string, color: string) {
+    return await this.habitsService.createHabit(name, description, color);
   }
 
   public async toggleCompleteForToday(id: string) {

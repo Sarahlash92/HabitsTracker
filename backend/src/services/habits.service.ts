@@ -12,8 +12,12 @@ export class HabitsService {
     return this.habitRepository.getAll();
   }
 
-  async createHabit(name: string, description: string): Promise<Habit> {
-    return this.habitRepository.create(name, description);
+  async createHabit(
+    name: string,
+    description: string,
+    color: string
+  ): Promise<Habit> {
+    return this.habitRepository.create(name, description, color);
   }
 
   async toggleHabit(id: string): Promise<Habit | null> {
