@@ -5,6 +5,15 @@ import { DateRangeBar } from "./components/dateRangeBar/dateRangeBar";
 import { UserProfileCard } from "./components/userProfileCard/userProfileCard";
 import { CreateHabit } from "./components/createHabit/createHabit";
 import { HabitDisplayColumn } from "./components/habitDisplayColumn/habitDisplayColumn";
+import {
+  format,
+  startOfWeek,
+  addDays,
+  isSameDay,
+  parseISO,
+  isToday,
+  addWeeks,
+} from "date-fns";
 
 function App() {
   const data = [
@@ -47,6 +56,16 @@ function App() {
 
   const [habits, setHabits] = useState(data);
 
+  const [weekStart, setWeekStart] = useState(
+    startOfWeek(new Date(), { weekStartsOn: 1 })
+  );
+
+  const handleWeekChange = (direction) => {
+    setWeekStart((prev) =>
+      direction === "prev" ? addWeeks(prev, -1) : addWeeks(prev, 1)
+    );
+  };
+
   const handleDelete = (habitIdToDelete) => {
     const updatedHabits = habits.filter(
       (habit) => habit.id !== habitIdToDelete
@@ -63,6 +82,9 @@ function App() {
     setHabits(updatedHabits);
   };
 
+  const goToPrevWeek = () => setWeekStart((prev) => addWeeks(prev, -1));
+  const goToNextWeek = () => setWeekStart((prev) => addWeeks(prev, 1));
+
   return (
     <>
       <div className="flex h-screen justify-between w-full overflow-scroll">
@@ -72,8 +94,12 @@ function App() {
             habitsOnDisplay={habits}
             setHabitsOnDisplay={setHabits}
           />
-          <DateRangeBar />
-          <HabitsTable habits={habits} />
+          <DateRangeBar
+            weekStart={weekStart}
+            goToPrevWeek={goToPrevWeek}
+            goToNextWeek={goToNextWeek}
+          />
+          <HabitsTable habits={habits} weekStart={weekStart} />
         </div>
         <HabitDisplayColumn
           habits={habits}

@@ -1,26 +1,18 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   format,
-  startOfWeek,
   addDays,
   isSameDay,
   parseISO,
   isToday,
 } from "date-fns";
 
-export const HabitsTable = (props) => {
-    const { habits } = props;
+export const HabitsTable = ({ habits, weekStart }) => {
+  // Make sure weekStart is a valid Date
+  const startDate = new Date(weekStart);
+  if (isNaN(startDate)) return <div>Invalid week start</div>;
 
-    console.log(habits.color);
-  const weekStart = useMemo(
-    () => startOfWeek(new Date(), { weekStartsOn: 1 }),
-    []
-  );
-
-  const daysOfWeek = useMemo(
-    () => Array.from({ length: 7 }, (_, i) => addDays(weekStart, i)),
-    [weekStart]
-  );
+  const weekDates = Array.from({ length: 7 }, (_, i) => addDays(startDate, i));
 
   return (
     <div className="flex h-2/3">
@@ -29,7 +21,7 @@ export const HabitsTable = (props) => {
           <tr>
             <th />
             <th />
-            {daysOfWeek.map((day, index) => (
+            {weekDates.map((day, index) => (
               <th
                 key={index}
                 className="min-w-[60px] py-3 font-light text-center"
@@ -48,7 +40,7 @@ export const HabitsTable = (props) => {
                 ></span>
               </td>
               <td className="p-2 font-light text-left">{habit.name}</td>
-              {daysOfWeek.map((day, index) => {
+              {weekDates.map((day, index) => {
                 const habitCompletedDates = habit.completedDates || [];
                 const completed = habitCompletedDates.some((date) =>
                   isSameDay(parseISO(date), day)
@@ -58,14 +50,13 @@ export const HabitsTable = (props) => {
                     <div className="flex items-center justify-center w-full h-full">
                       <span
                         className={`block rounded-md w-7 h-7 transition-all duration-200
-          ${
-            completed
-              ? `${habit.color} text-white`
-              : isToday(day)
-              ? "bg-pink-50"
-              : "bg-gray-50"
-          }
-        `}
+                          ${
+                            completed
+                              ? `${habit.color} text-white`
+                              : isToday(day)
+                              ? "bg-pink-50"
+                              : "bg-gray-50"
+                          }`}
                       />
                     </div>
                   </td>
