@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { HabitsTable } from "./components/habitsTable/habitsTable";
 import { DateRangeBar } from "./components/habitsTable/dateRangeBar/dateRangeBar";
+import { UserProfileCard } from "./components/habitsTable/userProfileCard/userProfileCard";
 
 function App() {
   const data = [
@@ -46,6 +47,7 @@ function App() {
   console.log("habits", habits);
   return (
     <div className="">
+      <UserProfileCard habits={habits} />
       <DateRangeBar />
       <HabitsTable habits={habits} />
     </div>
