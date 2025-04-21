@@ -11,7 +11,6 @@ const FILE_PATH = path.resolve(__dirname, "../data/habits.json");
 export class FileHabitRepository implements HabitsRepository {
   private async readData(): Promise<Habit[]> {
     try {
-      console.log("FILE_PATH", FILE_PATH);
       const data = await fs.readFile(FILE_PATH, "utf-8");
       return JSON.parse(data);
     } catch {
@@ -36,7 +35,6 @@ export class FileHabitRepository implements HabitsRepository {
       completedDates: [],
     };
     habits.push(newHabit);
-    console.log('new habit',newHabit );
     await this.writeData(habits);
     return newHabit;
   }

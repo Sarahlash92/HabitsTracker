@@ -13,7 +13,6 @@ export class HabitsService {
   }
 
   async createHabit(name: string, description: string): Promise<Habit> {
-    console.log("creating triggered");
     return this.habitRepository.create(name, description);
   }
 

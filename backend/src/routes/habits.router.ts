@@ -25,9 +25,7 @@ export class HabitsRouter {
 
     this.router.post("/", async (req: Request, res: Response) => {
       try {
-        console.log("creating triggered");
         const { name, description } = req.body;
-        console.log("name", name,  "description",description );
         const newHabit = await this.habitsController.create(name, description);
         res.status(201).json(newHabit);
       } catch (error) {

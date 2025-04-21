@@ -55,9 +55,11 @@
     ]
   },
   {
-    "id": "3273833f-8685-4f41-ad6d-c4e6dce7c701",
+    "id": "b56888b6-0558-4507-962d-af8ea0a9faae",
     "name": "Walk the dog",
     "description": "Walk the dog twice a day",
-    "completedDates": []
+    "completedDates": [
+      "2025-04-21"
+    ]
   }
 ]
