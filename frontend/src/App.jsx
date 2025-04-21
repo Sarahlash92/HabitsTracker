@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { useState } from "react";
 import { HabitsTable } from "./components/habitsTable/habitsTable";
-import { DateRangeBar } from "./components/habitsTable/dateRangeBar/dateRangeBar";
-import { UserProfileCard } from "./components/habitsTable/userProfileCard/userProfileCard";
+import { DateRangeBar } from "./components/dateRangeBar/dateRangeBar";
+import { UserProfileCard } from "./components/userProfileCard/userProfileCard";
 import { CreateHabit } from "./components/createHabit/createHabit";
+import { HabitDisplayColumn } from "./components/habitDisplayColumn/habitDisplayColumn";
 
 function App() {
   const data = [
@@ -45,7 +46,16 @@ function App() {
   ];
 
   const [habits, setHabits] = useState(data);
-  console.log("habits", habits);
+ 
+  const handleSetCompletedDates = (habitIndex, newCompletedDates) => {
+    const updatedHabits = [...habits];
+    updatedHabits[habitIndex] = {
+      ...updatedHabits[habitIndex],
+      completedDates: newCompletedDates,
+    };
+    setHabits(updatedHabits);
+  };
+
   return (
     <>
       <div className="flex h-screen justify-between w-full overflow-scroll">
@@ -58,6 +68,10 @@ function App() {
           <DateRangeBar />
           <HabitsTable habits={habits} />
         </div>
+        <HabitDisplayColumn
+          habits={habits}
+          setCompletedDates={handleSetCompletedDates} 
+        />
       </div>
     </>
   );
