@@ -43,9 +43,8 @@ to run the project on local;
 2. Start the Backend
 cd backend
 npm install
-npm run start:dev
-
---- this took a while but there is an error happening on npm run start (it took me a long time figuring out unfourtently I gave up :( )
+npm run build
+npm run start
 
 4. Start the Frontend
 cd ../frontend
