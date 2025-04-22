@@ -59,3 +59,11 @@ full-stack deployment, consider using Render (for backend) and Vercel or Netlify
 -- the main thing I skipped was Authentication (Mock), I think I put more time on frontend than I should have, leaving me not so much time diving into authentication 
 -- using useCallback on react, so far I did not have the need to use it, I hope that would be ok.
 
+### env varialbes
+on the frondend create .env file add : 
+VITE_API_BASE_URL = http://localhost:8080
+
+on the backend also create .env and add : 
+STORAGE=file
+PORT=8080
+CORS_ORIGIN=http://localhost:5173
